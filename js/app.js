@@ -8,7 +8,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         url: '/',
         templateUrl: 'home.html',
         data: {
-            title: 'Code Detail'
+            title: 'Home Page'
         }
     });
 
@@ -16,7 +16,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         url: '/about',
         templateUrl: 'about.html',
         data: {
-            title: 'Code Detail'
+            title: 'About Me'
         }
     });
 
@@ -24,7 +24,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         url: '/blog',
         templateUrl: 'blog.html',
         data: {
-            title: 'Code Detail'
+            title: 'Personal Blog'
         }
     });
 
@@ -32,7 +32,18 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         url: '/contact',
         templateUrl: 'contact.html',
         data: {
-            title: 'Code Detail'
+            title: 'Contact Me'
         }
     });
 });
+
+app.run(['$rootScope', '$state',
+        function ($rootScope, $state) {
+            $rootScope.$on('$stateChangeSuccess', function () {
+                $rootScope.title = $state.current.data.title;
+            });
+        }
+    ]
+);
+
+
