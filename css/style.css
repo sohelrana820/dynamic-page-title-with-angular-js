@@ -4,6 +4,10 @@ body {
     padding-bottom: 20px;
 }
 
+a{
+    cursor: pointer;
+}
+
 html {
     position: relative;
     min-height: 100%;
